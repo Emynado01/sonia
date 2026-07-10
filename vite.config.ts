@@ -48,12 +48,11 @@ function gptImageTransformApi(): Plugin {
             model: process.env.OPENAI_IMAGE_MODEL ?? "gpt-image-1",
             image: await toFile(imageBuffer, `sonia-photo.${extension}`, { type: mimeType }),
             prompt:
-              "Transforme la photo fournie en souvenir joyeux pour une carte de retraite. " +
-              "Garde la personne reconnaissable et conserve la photo comme élément central. " +
-              "Ne rajoute pas d'oreilles, de cornes, de costume ou de transformation du visage. " +
-              "Place l'ensemble dans une composition propre et festive inspirée d'un emballage rond de fromage, rouge, crème, bleu et doré, avec étoiles et rubans. " +
-              "Ajoute seulement le texte lisible 'Sonia qui rit' de façon élégante et bien intégrée. " +
-              "Ne copie pas de logo réel et n'utilise pas de marque déposée.",
+              "Modifie l'image fournie sans changer la photo elle-même. " +
+              "Ne retouche pas le visage, le corps, les vêtements, l'arrière-plan, la lumière ou les couleurs de la photo. " +
+              "Ajoute uniquement une surimpression décorative propre: le texte lisible 'Sonia qui rit' et quelques rubans décoratifs élégants. " +
+              "Les ajouts doivent rester légers, bien intégrés et placés autour de la photo sans cacher le visage. " +
+              "N'ajoute pas d'oreilles, de cornes, de costume, de logo réel, de marque déposée, ni d'emballage complet.",
             size: "1024x1024",
           });
 
