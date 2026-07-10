@@ -45,14 +45,14 @@ function gptImageTransformApi(): Plugin {
 
           const client = new OpenAI({ apiKey });
           const editedImage = await client.images.edit({
-            model: process.env.OPENAI_IMAGE_MODEL ?? "gpt-image-1",
+            model: "gpt-image-2",
             image: await toFile(imageBuffer, `sonia-photo.${extension}`, { type: mimeType }),
             prompt:
-              "Transforme la photo fournie en illustration dessin réaliste, joyeuse et propre, tout en gardant la personne reconnaissable. " +
-              "Intègre le portrait dans un emballage rond de fromage inspiré de l'univers La Vache qui rit: couleurs rouge, crème, bleu et doré, contour circulaire, étoiles et rubans décoratifs. " +
-              "Ajoute le texte lisible 'Sonia qui rit' comme titre principal sur l'emballage. " +
-              "Le résultat doit ressembler à un souvenir personnalisé de retraite, chaleureux, lumineux et bien fini. " +
-              "Ne copie pas le logo réel, ne reprends pas de marque déposée exacte et n'ajoute pas le nom officiel de la marque.",
+              "Transforme la photo fournie en illustration de style dessin réaliste, proche d'une vraie photo et clairement ressemblante à la personne originale. " +
+              "Respecte l'expression naturelle de la personne: ne crée pas de sourire si la photo d'origine ne sourit pas, ne change pas l'âge, le visage, la posture ou l'identité. " +
+              "Intègre le portrait dans un emballage rond de fromage inspiré de l'univers La Vache qui rit: couleurs rouge, crème, bleu et doré, contour circulaire et composition propre. " +
+              "Ajoute uniquement la phrase lisible 'Sonia qui rit' comme titre principal, avec quelques décorations élégantes et légères. " +
+              "N'ajoute pas d'oreilles, de cornes, de costume, de logo réel, de marque déposée exacte ni le nom officiel de la marque.",
             size: "1024x1024",
           });
 
