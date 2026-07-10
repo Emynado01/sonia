@@ -8,3 +8,4 @@ dist
 vite-dev*.log
 .agents
 .codex
+.codex-remote-attachments

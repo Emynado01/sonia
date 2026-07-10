@@ -501,6 +501,12 @@ async function requestPhotoTransformation(source: string) {
     body: JSON.stringify({ image: source }),
   });
 
+  const contentType = response.headers.get("content-type") ?? "";
+
+  if (!contentType.includes("application/json")) {
+    throw new Error("La route API de modification photo n’est pas disponible sur cette version déployée.");
+  }
+
   const payload = (await response.json()) as { image?: string; error?: string };
 
   if (!response.ok || !payload.image) {
